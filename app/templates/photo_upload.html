@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Upload document</h2>
+    <p>Please upload file in .txt, .pdf format only</p>
+    <form action="{{ url_for('photo_upload') }}" method="post" enctype="multipart/form-data">
+        {% include 'flash_messages.html' %}
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.photo.label }}
+            {{ form.photo(class="form-control") }}
+        </div>
+
+        <button class="btn btn-primary">Upload</button>
+    </form>
+{% endblock %}
